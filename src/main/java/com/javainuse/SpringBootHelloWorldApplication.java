@@ -1,16 +1,19 @@
 package com.javainuse;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
 
-@RestController
-@EnableAutoConfiguration
 @SpringBootApplication
-public class SpringBootHelloWorldApplication {
+public class SpringBootHelloWorldApplication extends SpringBootServletInitializer {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SpringBootHelloWorldApplication.class, args);
-	}
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application)
+	  {
+	    return application.sources(new Class[] { SpringBootHelloWorldApplication.class });
+	  }
+
+	  public static void main(String[] args) {
+	    SpringApplication.run(SpringBootHelloWorldApplication	.class, args);
+	  }
 }

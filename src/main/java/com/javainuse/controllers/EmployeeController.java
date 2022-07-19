@@ -33,7 +33,7 @@ public class EmployeeController {
 
 	}
 
-	@RequestMapping(value = "/listEmployees.html", method = RequestMethod.GET)
+	@RequestMapping(value = { "/", "/listEmployees.html" }, method = RequestMethod.GET)
 	public ModelAndView employees() {
 		List<Employee> allEmployees = employeeData.findAll();
 		return new ModelAndView("allEmployees", "employees", allEmployees);
